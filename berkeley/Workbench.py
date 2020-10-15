@@ -28,12 +28,9 @@ if __name__ == '__main__':
     t4 = Thread(target=slave4.escuchar)
     t4.start()
     master.work()
-
-    print(master.diferencia_media)
+    print("Diferencia media {}[s]".format(master.diferencia_media))
     print("Master ajustado tiempo {}".format(master.get_human_time()))
     print("slave 1 ajustado tiempo {}".format(slave1.get_human_time()))
     print("slave 2 ajustado tiempo {}".format(slave2.get_human_time()))
     print("slave 3 ajustado tiempo {}".format(slave3.get_human_time()))
     print("slave 4 ajustado tiempo {}".format(slave4.get_human_time()))
-
-    

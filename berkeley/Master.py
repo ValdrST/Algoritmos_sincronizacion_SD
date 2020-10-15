@@ -25,7 +25,6 @@ class Master():
         self.tiempos = []
         for slave in self.slaves:
             self.tiempos.append(self.obtener_tiempo_slave(slave))
-
     
     def obtener_tiempo_slave(self, slave):
         context = zmq.Context()
@@ -53,7 +52,6 @@ class Master():
         
     def calcular_diferencia_media(self):
         self.diferencia_media = self.suma_diferencias / (len(self.slaves) + 1)
-
 
     def sumar_diferencias(self):
         self.suma_diferencias = 0
