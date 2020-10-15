@@ -1,0 +1,84 @@
+\usepackage[spanish]{babel}
+\usepackage[right=2.2cm,left=2.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{fancyhdr}
+\usepackage{subfiles}
+\usepackage{listings}
+\usepackage{xcolor}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdflang={Spanish}
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    language=bash,
+    morekeywords={dnf,yum,rpm,yum-config-manager,
+        sleep,systemctl,wget,tar,cp,ln,snap,ip,system,
+        ipa-client-intall,authconfig,showmount,mount,
+        df,umount,vi,grub2-setpassword,nano,usermod,
+        ifconfig,apt,mv,smbclient,host,adduser,authselect,net},
+    keywords=[2]{install,\ -y,update,--import,-t,
+        versionlock, -v, link,enable,start,restart,unmask,\ -U,use},% define keywords
+     keywordstyle=[2]{\color[RGB]{51, 51, 204}},
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstdefinestyle{nonestyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{black},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{black},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Script}
+
+\graphicspath{{./img/}}
+\pagestyle{fancy}
+\fancyfoot[R]{\thepage}
+\fancyfoot[C]{\includegraphics[width=0.1\textwidth]{inge_logo}}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
