@@ -10,7 +10,7 @@ make:
 	$(PDF_COMPILE) $(OBJETIVE)
 
 clean:
-	rm -f *.toc *.log *.pdf *.out *.aux *.gz
+	rm -rf *.toc *.log *.pdf *.out *.aux *.gz .auctex-auto/ _minted-main/ _region_.tex *.out
 
 
 # end
