@@ -1,0 +1,82 @@
+El algoritmo de Berkeley es una técnica de sincronización de reloj utilizada en
+sistemas distribuidos. El algoritmo asume que cada nodo de la máquina en la red
+no tiene una fuente de tiempo precisa o no posee un servidor UTC.\@
+
+En la \textbf{Clase Master} se elige un nodo individual como nodo maestro de un
+grupo de nodos en la red. Este nodo es el nodo principal de la red que actúa
+como maestro y el resto de los nodos actúan como esclavos. El nodo maestro se
+elige mediante un proceso de elección/algoritmo de elección de líder.
+\begin{listing}[H]
+\inputminted[
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1.2,
+  bgcolor=LightGray,
+  fontsize=\footnotesize,
+  linenos,
+  firstline=36, lastline=51
+  ]{python}{../berkeley/Master.py}
+\caption{Master haciendo ajustes a los Slaves}
+\label{lst:1}
+\end{listing}
+
+En la \textbf{Clase Slave} los slaves se inicializan y se les asigna el tiempo
+en que fueron inicializados, ese tiempo se los asigna la clase master utilizando
+la biblioteca \mintinline{shell}{zmq}.
+Se utiliza \textbf{localhost}\footnote{Nombre predeterminado que se usa para establecer
+  una conexión con la computadora local computadora usando la red de dirección
+  de bucle invertido. $127.0.0.1$} y los puertos $1000$, $1001$, $1002$ y $1004$.
+\begin{listing}[H]
+\inputminted[
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1.2,
+  bgcolor=LightGray,
+  fontsize=\footnotesize,
+  linenos,
+  firstline=7,
+  %lastline=49
+  ]{python}{../berkeley/Slave.py}
+\caption{Clase Slave}
+\label{lst:2}
+\end{listing}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm]{1}
+  \caption{Solicitud de tiempo para cada Slave y el mismo Master}\label{fig:1}
+\end{figure}
+
+Después de la sincronización, cada proceso imprime su reloj lógico para
+verificar el resultado de la sincronización.
+
+El Slave maestro calcula la diferencia de tiempo promedio entre todas las horas
+de reloj recibidas y la hora de reloj proporcionada por el reloj del sistema
+maestro. Esta diferencia de tiempo promedio se agrega a la hora actual en el
+reloj del sistema principal y se transmite a través de la red.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm]{2}
+  \caption{Sincronización del tiempo}\label{fig:2}
+\end{figure}
+\begin{listing}[H]
+\inputminted[
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1.2,
+  bgcolor=LightGray,
+  fontsize=\footnotesize,
+  linenos,
+  firstline=7,
+  %lastline=49
+  ]{python}{../berkeley/Workbench.py}
+\caption{Implementación}
+\label{lst:2}
+\end{listing}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm]{3}
+  \caption{Ejecución de \mintinline{shell}{Workbrench.py}}\label{fig:3}
+\end{figure}
