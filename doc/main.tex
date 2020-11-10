@@ -4,12 +4,44 @@
 \input{./portada.tex}
 \tableofcontents{}
 
+\section{Introducción}\label{Introduccion}
+Un sistema distribuido es una colección de entidades que cooperan para
+resolver un problema que no puede ser resuelto por una sola entidad. En un
+sistema distribuido, el único medio de comunicación es la red de
+interconexión, no existe un espacio de memoria compartida para los procesos
+que se ejecutan en el sistema, por lo que la comunicación entre cada
+proceso se realiza enviando y recibiendo mensajes.
+
+Otro factor que juega un papel de suma importancia en los sistemas
+distribuidos es el tipo de comunicación que existe entre los componentes
+del sistema. La comunicación en un sistema distribuidos puede ser síncrona
+o asíncrona, siendo la primera se cuándo los procesos se sincronizan con
+cada mensaje, las operaciones de envío y recepción de mensajes son
+bloqueantes, teniendo que esperar el cliente o el servidor la respuesta el
+uno del otro.
+
+Dentro de la comunicación síncrona, esta puede ser interna o externa. La
+externa ocurre cuando hay una fuente autoritaria de tiempo externa que rige
+la sincronización de los procesos, como es el caso del algoritmo de
+Cristian. En la sincronización interna, los procesos se sincronizan con
+precisión conocida, conociendo el tiempo en que pasaron los eventos incluso
+sin una fuente tiempo externa, como en el algoritmo de Berkeley
+
+A continuación, se muestra el desarrollo a profundidad de dos algoritmos de
+sincronización, uno interno y otro externo, así como el análisis de los
+mismo y códigos fuente que emulan su funcionamiento, apoyándonos de
+capturas de pantalla para respaldar nuestros resultados y conclusiones.
+
+\clearpage{}
+
 \section{Algoritmo de Berkeley}\label{sec:algor-de-berk}
 \input{berkeley}
 \clearpage
 \section{Algoritmo de Cristian}\label{sec:algor-de-cris}
-\input{cristian}
+\input{cristian}\nocite{*}
 
+\bibliographystyle{apalike}
+\bibliography{ref}
 
 \renewcommand\listoflistingscaption{Índice de códigos}
 \newpage

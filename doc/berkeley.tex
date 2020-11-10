@@ -1,3 +1,10 @@
+En muchos algoritmos como el de NTP, el servidor de tiempo es pasivo. Otras
+máquinas solicitan periódicamente el tiempo. Todo lo que se hace es responder a
+sus consultas. En Berkeley UNIX se aplica exactamente el método opuesto.
+Aquí, el servidor de tiempo (de hecho, un demonio de tiempo) es activo, ya que
+cada cierto tiempo pregunta a cada máquina sobre la hora ahí registrada
+(\cite{TSO}).
+
 El algoritmo de Berkeley es una técnica de sincronización de reloj utilizada en
 sistemas distribuidos. El algoritmo asume que cada nodo de la máquina en la red
 no tiene una fuente de tiempo precisa o no posee un servidor UTC.\@
