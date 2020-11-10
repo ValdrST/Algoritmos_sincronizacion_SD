@@ -1,3 +1,10 @@
+En muchos algoritmos como el de NTP, el servidor de tiempo es pasivo. Otras
+máquinas solicitan periódicamente el tiempo. Todo lo que se hace es responder a
+sus consultas. En Berkeley UNIX se aplica exactamente el método opuesto.
+Aquí, el servidor de tiempo (de hecho, un demonio de tiempo) es activo, ya que
+cada cierto tiempo pregunta a cada máquina sobre la hora ahí registrada
+(\cite{TSO}).
+
 El algoritmo de Berkeley es una técnica de sincronización de reloj utilizada en
 sistemas distribuidos. El algoritmo asume que cada nodo de la máquina en la red
 no tiene una fuente de tiempo precisa o no posee un servidor UTC.\@
@@ -6,6 +13,8 @@ En la \textbf{Clase Master} se elige un nodo individual como nodo maestro de un
 grupo de nodos en la red. Este nodo es el nodo principal de la red que actúa
 como maestro y el resto de los nodos actúan como esclavos. El nodo maestro se
 elige mediante un proceso de elección/algoritmo de elección de líder.
+También se hace una subrutina utilizada para la diferencia de reloj
+promedio
 \begin{listing}[H]
 \inputminted[
   frame=lines,
@@ -14,7 +23,7 @@ elige mediante un proceso de elección/algoritmo de elección de líder.
   bgcolor=LightGray,
   fontsize=\scriptsize,
   linenos,
-  firstline=36, lastline=51
+  firstline=36%, lastline=51
   ]{python}{../berkeley/Master.py}
 \caption{Master haciendo ajustes a los Slaves}
 \label{lst:1}
